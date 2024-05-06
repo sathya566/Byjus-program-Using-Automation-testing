@@ -1,0 +1,30 @@
+package selinum;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class onlineClass {
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "E:\\chrome driver\\chromedriver-win64\\chromedriver.exe");
+		WebDriver d=new ChromeDriver();
+		d.get("https://byjus.com/");
+		
+		WebElement e1=d.findElement(By.xpath("//*[@id=\"top-navbar-collapse\"]/ul/li[3]/span[1]/a/img"));
+		e1.click();
+		 Actions builder=new Actions(d);
+         builder.moveToElement(e1);
+		WebElement e2=d.findElement(By.linkText("Mock Test | JEE Main"));
+		e2.click();
+		d.get("https://byjus.com/question-answer/");
+		System.out.println(d.findElement(By.xpath("//*[@id=\"__next\"]/div[4]/div/div[2]/div[3]/div[2]")).getText());
+		 d.close();
+		
+				
+		
+				
+
+}
+}
